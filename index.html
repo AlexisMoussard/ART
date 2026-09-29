@@ -8,16 +8,26 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <button class="btn-info" id="openInfo">Info</button>
-  </header>
+  <!-- DANS LE HEADER (En haut à gauche/centre) -->
+<header>
+  <button class="btn-game" id="openGame">Jeu</button>
+  <button class="btn-info" id="openInfo">Info</button>
+</header>
+
+<!-- MODALE DU MINI-JEU -->
+<div class="game-modal" id="gameModal">
+  <button class="close-modal" id="closeGameModal">&times;</button>
+  <div class="game-container">
+    <canvas id="gameCanvas" width="800" height="300"></canvas>
+    <p class="game-instructions">Espace ou Clic pour sauter</p>
+  </div>
+</div>
 
   <!-- ACCROCHE ÉDITORIALE -->
   <section class="hero-header">
     <h1 class="hero-title">WHERE AM I ?</h1>
     <p class="hero-subtitle">
-      Voyagez à travers les visions du temps d'Alexis Moussard, la Distortion de la matière et des corps, trouvez vos repères.
+      Voyagez à travers les visions du temps selon Alexis Moussard, la Distortion de la matière et des corps, trouvez vos repères.
     </p>
   </section>
 
