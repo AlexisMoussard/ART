@@ -8,20 +8,11 @@
 </head>
 <body>
 
-  <!-- DANS LE HEADER (En haut à gauche/centre) -->
-<header>
-  <button class="btn-game" id="openGame">Jeu</button>
-  <button class="btn-info" id="openInfo">Info</button>
-</header>
-
-<!-- MODALE DU MINI-JEU -->
-<div class="game-modal" id="gameModal">
-  <button class="close-modal" id="closeGameModal">&times;</button>
-  <div class="game-container">
-    <canvas id="gameCanvas" width="800" height="300"></canvas>
-    <p class="game-instructions">Espace ou Clic pour sauter</p>
-  </div>
-</div>
+  <!-- HEADER : JEU EN HAUT À GAUCHE, INFO À DROITE -->
+  <header>
+    <button class="btn-game" id="openGame">Jeu</button>
+    <button class="btn-info" id="openInfo">Info</button>
+  </header>
 
   <!-- ACCROCHE ÉDITORIALE -->
   <section class="hero-header">
@@ -31,7 +22,7 @@
     </p>
   </section>
 
-  <!-- ANIMATION GIF (CONSERVÉE) -->
+  <!-- LOGO CHAIR ANIMÉ -->
   <section class="hero-logo-zone">
     <div class="hero-gif-wrapper">
       <img src="images/WALK_CYCLE_A.gif" alt="Animation 3D Alexis Moussard" class="hero-3d-gif">
@@ -231,7 +222,7 @@
     </div>
   </section>
 
-  <!-- POP-UP AU CLIC -->
+  <!-- POP-UP OEUVRE AU CLIC -->
   <div class="artwork-modal" id="artworkModal">
     <button class="close-modal" id="closeArtworkModal">&times;</button>
     <div class="artwork-modal-container">
@@ -258,7 +249,7 @@
     </div>
   </div>
 
-  <!-- MODALE INFO -->
+  <!-- MODALE INFO (À PROPOS) -->
   <div class="info-modal" id="infoModal">
     <button class="close-modal" id="closeInfo">&times;</button>
     <div class="info-content">
@@ -274,7 +265,19 @@
     </div>
   </div>
 
+  <!-- MODALE DU JEU -->
+  <div class="game-modal" id="gameModal">
+    <button class="close-modal" id="closeGameModal">&times;</button>
+    <div class="game-container">
+      <h2>Mini-Jeu</h2>
+      <canvas id="gameCanvas" width="800" height="300"></canvas>
+      <p class="game-instructions">Appuie sur ESPACE ou CLIQUE pour sauter</p>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
   <script>
+    // 1. Modale Info
     const openBtn = document.getElementById('openInfo');
     const closeBtn = document.getElementById('closeInfo');
     const modal = document.getElementById('infoModal');
@@ -282,6 +285,7 @@
     openBtn.addEventListener('click', () => modal.classList.add('active'));
     closeBtn.addEventListener('click', () => modal.classList.remove('active'));
 
+    // 2. Modale Oeuvre au Clic
     const artworkModal = document.getElementById('artworkModal');
     const closeArtworkModal = document.getElementById('closeArtworkModal');
     const modalImg = document.getElementById('modalImg');
@@ -311,6 +315,7 @@
       artworkModal.classList.remove('active');
     });
 
+    // 3. Animation au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -321,6 +326,7 @@
 
     cards.forEach(card => observer.observe(card));
 
+    // 4. Fond dynamique désaturé au survol
     const htmlElement = document.documentElement;
     const defaultColor = '#ffffff';
 
@@ -338,6 +344,7 @@
     });
   </script>
 
+  <!-- CHARGEMENT DU SCRIPT DU JEU -->
   <script src="game.js"></script>
 </body>
 </html>

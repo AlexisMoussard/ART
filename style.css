@@ -1,5 +1,5 @@
 /* =========================================================
-   1. DECLARATION DES POLICES MONT (DEPUIS VOTRE DOSSIER FONTS/)
+   1. POLICES MONT
    ========================================================= */
 @font-face {
   font-family: 'Mont-Black';
@@ -34,7 +34,7 @@
 }
 
 /* =========================================================
-   2. RESET & FOND DE PAGE DYNAMIQUE
+   2. RESET & FOND DYNAMIQUE
    ========================================================= */
 :root {
   --bg-default: #ffffff;
@@ -63,70 +63,9 @@ body {
   max-width: 1050px;
   margin: 0 auto;
 }
-/* Bouton Jeu dans le Header */
-.btn-game {
-  background: transparent;
-  color: var(--text-main);
-  border: none;
-  font-family: 'Mont-Bold', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-right: 20px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
 
-.btn-game:hover {
-  opacity: 0.6;
-  transform: scale(1.05);
-}
-
-/* Modale du jeu */
-.game-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  z-index: 400;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-
-.game-modal.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.game-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-#gameCanvas {
-  background: #ffffff;
-  border-bottom: 2px solid #111113;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  max-width: 90vw;
-}
-
-.game-instructions {
-  font-family: 'Mont-ExtraLight', sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
 /* =========================================================
-   3. HEADER FIXE
+   3. HEADER : JEU À GAUCHE, INFO À DROITE
    ========================================================= */
 header {
   position: sticky;
@@ -134,11 +73,11 @@ header {
   z-index: 100;
   padding: 20px 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Place Jeu à gauche et Info à droite */
   align-items: center;
 }
 
-.btn-info {
+.btn-game, .btn-info {
   background: transparent;
   color: var(--text-main);
   border: none;
@@ -150,7 +89,7 @@ header {
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.btn-info:hover {
+.btn-game:hover, .btn-info:hover {
   opacity: 0.6;
   transform: scale(1.05);
 }
@@ -166,7 +105,7 @@ header {
 }
 
 .hero-title {
-  font-family: 'Mont-Black', sans-serif; /* Poids maximal */
+  font-family: 'Mont-Black', sans-serif;
   font-size: clamp(3.2rem, 9.5vw, 6.8rem);
   line-height: 0.95;
   letter-spacing: -0.04em;
@@ -175,7 +114,7 @@ header {
 }
 
 .hero-subtitle {
-  font-family: 'Mont-Regular', sans-serif; /* Lisibilité fluide */
+  font-family: 'Mont-Regular', sans-serif;
   font-size: clamp(1rem, 2.2vw, 1.25rem);
   line-height: 1.55;
   color: #333333;
@@ -184,7 +123,7 @@ header {
 }
 
 /* =========================================================
-   5. LOGO ANIMÉ (GIF)
+   5. LOGO CHAIR ANIMÉ (GIF)
    ========================================================= */
 .hero-logo-zone {
   padding: 40px 0 100px;
@@ -196,7 +135,7 @@ header {
 
 .hero-gif-wrapper {
   width: 100%;
-  max-width: 600px; /* Taille augmentée pour CHAIR.gif */
+  max-width: 600px;
   height: 380px;
   display: flex;
   align-items: center;
@@ -212,13 +151,13 @@ header {
 }
 
 /* =========================================================
-   6. GALERIE & CARTES AVEC BANDE BLANCHE GÉNÉREUSE
+   6. GALERIE & CARTES
    ========================================================= */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 50px; /* Modifier cette valeur pour régler l'écart horizontal */
-  row-gap: 110px;   /* Modifier cette valeur pour régler l'écart vertical */
+  column-gap: 50px;
+  row-gap: 110px;
 }
 
 .artwork-card {
@@ -229,7 +168,7 @@ header {
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   cursor: pointer;
-  background-color: #ffffff; /* Carte encadrée sur fond blanc */
+  background-color: #ffffff;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
@@ -266,15 +205,14 @@ header {
   transform: scale(1.04);
 }
 
-/* CARTELLAGE BLANC & TITRE CENTRÉ */
 .artwork-info {
   background-color: #ffffff;
-  padding: 24px 16px 28px; /* Espace généreux en bas */
-  text-align: center;      /* Titre centré */
+  padding: 24px 16px 28px;
+  text-align: center;
 }
 
 .artwork-title {
-  font-family: 'Mont-ExtraLight', sans-serif; /* Police très fine */
+  font-family: 'Mont-ExtraLight', sans-serif;
   font-size: 1.15rem;
   letter-spacing: 0.03em;
   color: var(--text-main);
@@ -299,12 +237,12 @@ header {
 }
 
 /* =========================================================
-   8. POP-UP DÉTAIL AU CLIC (FOND FLOU + TEINTE COULEUR)
+   8. POP-UP OEUVRE AU CLIC
    ========================================================= */
 .artwork-modal {
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(25px); /* Flou puissant d'arrière-plan */
+  backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   z-index: 300;
   display: flex;
@@ -413,16 +351,18 @@ header {
 }
 
 /* =========================================================
-   9. MODALE INFO
+   9. MODALE INFO & MODALE JEU
    ========================================================= */
-.info-modal {
+.info-modal, .game-modal {
   position: fixed;
   inset: 0;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(20px);
-  z-index: 200;
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 400;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   padding: 30px;
   opacity: 0;
@@ -430,7 +370,7 @@ header {
   transition: opacity 0.4s ease;
 }
 
-.info-modal.active {
+.info-modal.active, .game-modal.active {
   opacity: 1;
   pointer-events: auto;
 }
@@ -447,13 +387,13 @@ header {
   cursor: pointer;
 }
 
-.info-content {
+.info-content, .game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 20px;
-  max-width: 420px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
@@ -479,6 +419,22 @@ header {
 .contact-links a {
   color: var(--text-main);
   text-decoration: underline;
+}
+
+#gameCanvas {
+  background: #ffffff;
+  border-bottom: 2px solid #111113;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  max-width: 90vw;
+  border-radius: 8px;
+}
+
+.game-instructions {
+  font-family: 'Mont-ExtraLight', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
