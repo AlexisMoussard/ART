@@ -1,0 +1,432 @@
+/* =========================================================
+   1. DECLARATION DES POLICES MONT (DEPUIS VOTRE DOSSIER FONTS/)
+   ========================================================= */
+@font-face {
+  font-family: 'Mont-Black';
+  src: url('fonts/Mont-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url('fonts/Mont-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mont-Regular';
+  src: url('fonts/Mont-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mont-ExtraLight';
+  src: url('fonts/Mont-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   2. RESET & FOND DE PAGE DYNAMIQUE
+   ========================================================= */
+:root {
+  --bg-default: #ffffff;
+  --text-main: #111113;
+  --text-muted: #777777;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  background-color: var(--bg-default);
+  transition: background-color 0.8s ease;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: 'Mont-Regular', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: 24px 16px 120px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   3. HEADER FIXE
+   ========================================================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-info {
+  background: transparent;
+  color: var(--text-main);
+  border: none;
+  font-family: 'Mont-Bold', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-info:hover {
+  opacity: 0.6;
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   4. TITRES ÉDITORIAUX D'ACCROCHE
+   ========================================================= */
+.hero-header {
+  text-align: center;
+  padding: 60px 0 30px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-family: 'Mont-Black', sans-serif; /* Poids maximal */
+  font-size: clamp(3.2rem, 9.5vw, 6.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-family: 'Mont-Regular', sans-serif; /* Lisibilité fluide */
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  line-height: 1.55;
+  color: #333333;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   5. LOGO ANIMÉ (GIF)
+   ========================================================= */
+.hero-logo-zone {
+  padding: 40px 0 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-gif-wrapper {
+  width: 100%;
+  max-width: 600px; /* Taille augmentée pour CHAIR.gif */
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.hero-3d-gif {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================================================
+   6. GALERIE & CARTES AVEC BANDE BLANCHE GÉNÉREUSE
+   ========================================================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 50px; /* Modifier cette valeur pour régler l'écart horizontal */
+  row-gap: 110px;   /* Modifier cette valeur pour régler l'écart vertical */
+}
+
+.artwork-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  cursor: pointer;
+  background-color: #ffffff; /* Carte encadrée sur fond blanc */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.artwork-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.artwork-card.hero-artwork {
+  grid-column: 1 / -1;
+  max-width: 780px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.artwork-media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f8f8f8;
+  overflow: hidden;
+}
+
+.artwork-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.artwork-card:hover .artwork-image {
+  transform: scale(1.04);
+}
+
+/* CARTELLAGE BLANC & TITRE CENTRÉ */
+.artwork-info {
+  background-color: #ffffff;
+  padding: 24px 16px 28px; /* Espace généreux en bas */
+  text-align: center;      /* Titre centré */
+}
+
+.artwork-title {
+  font-family: 'Mont-ExtraLight', sans-serif; /* Police très fine */
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  color: var(--text-main);
+}
+
+/* =========================================================
+   7. SECTION YEUX
+   ========================================================= */
+.eyes-section {
+  margin-top: 180px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.eyes-section-title {
+  font-family: 'Mont-Bold', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* =========================================================
+   8. POP-UP DÉTAIL AU CLIC (FOND FLOU + TEINTE COULEUR)
+   ========================================================= */
+.artwork-modal {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(25px); /* Flou puissant d'arrière-plan */
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, background-color 0.4s ease;
+}
+
+.artwork-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.artwork-modal-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  max-width: 950px;
+  width: 100%;
+  align-items: center;
+}
+
+.artwork-modal-left {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.modal-artwork-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artwork-modal-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.modal-artwork-title {
+  font-family: 'Mont-Bold', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.modal-artwork-price {
+  font-family: 'Mont-Regular', sans-serif;
+  font-size: 1.3rem;
+  color: #333333;
+}
+
+.modal-details-table {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 12px;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Mont-Regular', sans-serif;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 8px;
+}
+
+.modal-label {
+  color: var(--text-muted);
+}
+
+.modal-val {
+  color: var(--text-main);
+}
+
+.modal-acquire-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: var(--text-main);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Mont-Bold', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 30px;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.modal-acquire-btn:hover {
+  transform: translateY(-2px);
+  background: #333333;
+}
+
+/* =========================================================
+   9. MODALE INFO
+   ========================================================= */
+.info-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.info-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.close-modal {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  font-family: 'Mont-Bold', sans-serif;
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.about-portrait-wrapper {
+  width: 140px;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.about-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-links {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-links a {
+  color: var(--text-main);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    row-gap: 70px;
+  }
+  .artwork-modal-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
