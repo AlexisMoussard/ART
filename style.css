@@ -437,6 +437,28 @@ header {
   text-transform: uppercase;
 }
 
+/* Zone pour présenter les 2 animations WALK côte à côte */
+.hero-logo-zone.dual-walk-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 0 80px;
+  width: 100%;
+}
+
+.hero-logo-zone.dual-walk-zone .hero-gif-wrapper {
+  max-width: 320px;
+  height: 280px;
+}
+
+@media (max-width: 768px) {
+  .hero-logo-zone.dual-walk-zone {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .gallery {
     grid-template-columns: 1fr;
