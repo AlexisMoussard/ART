@@ -73,7 +73,7 @@ header {
   z-index: 100;
   padding: 20px 0;
   display: flex;
-  justify-content: space-between; /* Place Jeu à gauche et Info à droite */
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -95,7 +95,7 @@ header {
 }
 
 /* =========================================================
-   4. TITRES ÉDITORIAUX D'ACCROCHE
+   4. TITRES ÉDITORIAUX
    ========================================================= */
 .hero-header {
   text-align: center;
@@ -123,7 +123,7 @@ header {
 }
 
 /* =========================================================
-   5. LOGO CHAIR ANIMÉ (GIF)
+   5. LOGO ANIMATION (GIF)
    ========================================================= */
 .hero-logo-zone {
   padding: 40px 0 100px;
@@ -135,8 +135,8 @@ header {
 
 .hero-gif-wrapper {
   width: 100%;
-  max-width: 600px;
-  height: 380px;
+  max-width: 550px;
+  height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -351,7 +351,7 @@ header {
 }
 
 /* =========================================================
-   9. MODALE INFO & MODALE JEU
+   9. MODALE INFO & JEU
    ========================================================= */
 .info-modal, .game-modal {
   position: fixed;
@@ -435,28 +435,6 @@ header {
   letter-spacing: 0.05em;
   color: var(--text-muted);
   text-transform: uppercase;
-}
-
-/* Zone pour présenter les 2 animations WALK côte à côte */
-.hero-logo-zone.dual-walk-zone {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  padding: 40px 0 80px;
-  width: 100%;
-}
-
-.hero-logo-zone.dual-walk-zone .hero-gif-wrapper {
-  max-width: 320px;
-  height: 280px;
-}
-
-@media (max-width: 768px) {
-  .hero-logo-zone.dual-walk-zone {
-    flex-direction: column;
-    gap: 20px;
-  }
 }
 
 @media (max-width: 768px) {

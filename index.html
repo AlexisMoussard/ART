@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- HEADER : JEU EN HAUT À GAUCHE, INFO À DROITE -->
+  <!-- HEADER FIXE -->
   <header>
     <button class="btn-game" id="openGame">Jeu</button>
     <button class="btn-info" id="openInfo">Info</button>
@@ -22,29 +22,10 @@
     </p>
   </section>
 
-  <!-- ZONE D'ACCROCHE : LES DEUX ANIMATIONS WALK -->
-<section class="hero-logo-zone dual-walk-zone">
-  
-  <!-- Premier Walk : Version Vidéo Transparent (MOV / WebM) -->
-  <div class="hero-gif-wrapper">
-    <video autoplay loop muted playsinline class="hero-3d-gif">
-      <source src="images/RENDU_PIXEL_PRORES_24.webm" type="video/webm">
-      <source src="images/RENDU_PIXEL_PRORES_24.mov" type="video/quicktime; codecs=hvc1">
-      <img src="images/RENDU_PIXEL_24.gif" alt="Walk Animation Alexis Moussard">
-    </video>
-  </div>
-
-  <!-- Second Walk : Version GIF Animé -->
-  <div class="hero-gif-wrapper">
-    <img src="images/RENDU_PIXEL_24.gif" alt="Walk Animation 2 Alexis Moussard" class="hero-3d-gif">
-  </div>
-
-</section>
-
-  <!-- LOGO CHAIR ANIMÉ -->
+  <!-- ANIMATION WALK PRINCIPALE -->
   <section class="hero-logo-zone">
     <div class="hero-gif-wrapper">
-      <img src="images/WALK_CYCLE_A.gif" alt="Animation 3D Alexis Moussard" class="hero-3d-gif">
+      <img src="images/WALK_CYCLE_A.gif" alt="Walk Animation Alexis Moussard" class="hero-3d-gif">
     </div>
   </section>
 
@@ -296,7 +277,6 @@
 
   <!-- SCRIPTS -->
   <script>
-    // 1. Modale Info
     const openBtn = document.getElementById('openInfo');
     const closeBtn = document.getElementById('closeInfo');
     const modal = document.getElementById('infoModal');
@@ -304,7 +284,6 @@
     openBtn.addEventListener('click', () => modal.classList.add('active'));
     closeBtn.addEventListener('click', () => modal.classList.remove('active'));
 
-    // 2. Modale Oeuvre au Clic
     const artworkModal = document.getElementById('artworkModal');
     const closeArtworkModal = document.getElementById('closeArtworkModal');
     const modalImg = document.getElementById('modalImg');
@@ -334,7 +313,6 @@
       artworkModal.classList.remove('active');
     });
 
-    // 3. Animation au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -345,7 +323,6 @@
 
     cards.forEach(card => observer.observe(card));
 
-    // 4. Fond dynamique désaturé au survol
     const htmlElement = document.documentElement;
     const defaultColor = '#ffffff';
 
@@ -363,7 +340,6 @@
     });
   </script>
 
-  <!-- CHARGEMENT DU SCRIPT DU JEU -->
   <script src="game.js"></script>
 </body>
 </html>

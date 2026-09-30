@@ -1,4 +1,3 @@
-// Attente du chargement complet du DOM
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('gameCanvas');
   if (!canvas) return;
@@ -115,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let obs = obstacles[i];
       obs.x -= gameSpeed;
 
-      // Collisions
+      // Détection de collision (Hitbox AABB)
       if (
         player.x < obs.x + obs.width &&
         player.x + player.width > obs.x &&
@@ -135,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Sol
+    // Ligne de sol
     ctx.beginPath();
     ctx.moveTo(0, 260);
     ctx.lineTo(canvas.width, 260);
@@ -143,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    // Personnage
+    // Joueur (Saut du Walk)
     if (playerImg.complete && playerImg.naturalWidth !== 0) {
       ctx.drawImage(playerImg, player.x, player.y, player.width, player.height);
     } else {
