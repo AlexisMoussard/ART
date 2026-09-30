@@ -1,5 +1,5 @@
 /* =========================================================
-   1. POLICES MONT
+   1. DÉCLARATION DES POLICES MONT (DOSSIER FONTS/)
    ========================================================= */
 @font-face {
   font-family: 'Mont-Black';
@@ -34,7 +34,7 @@
 }
 
 /* =========================================================
-   2. RESET & FOND DYNAMIQUE
+   2. VARIABLES, RESET & TRANSITION DE FOND DYNAMIQUE
    ========================================================= */
 :root {
   --bg-default: #ffffff;
@@ -65,7 +65,7 @@ body {
 }
 
 /* =========================================================
-   3. HEADER : JEU À GAUCHE, INFO À DROITE
+   3. HEADER FIXE : JEU À GAUCHE, INFO À DROITE
    ========================================================= */
 header {
   position: sticky;
@@ -77,7 +77,8 @@ header {
   align-items: center;
 }
 
-.btn-game, .btn-info {
+.btn-game, 
+.btn-info {
   background: transparent;
   color: var(--text-main);
   border: none;
@@ -89,13 +90,14 @@ header {
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.btn-game:hover, .btn-info:hover {
+.btn-game:hover, 
+.btn-info:hover {
   opacity: 0.6;
   transform: scale(1.05);
 }
 
 /* =========================================================
-   4. TITRES ÉDITORIAUX
+   4. SECTION D'ACCROCHE ÉDITORIALE
    ========================================================= */
 .hero-header {
   text-align: center;
@@ -123,7 +125,7 @@ header {
 }
 
 /* =========================================================
-   5. LOGO ANIMATION (GIF)
+   5. ZONE DU LOGO ANIMÉ (GIF 3D)
    ========================================================= */
 .hero-logo-zone {
   padding: 40px 0 100px;
@@ -151,7 +153,7 @@ header {
 }
 
 /* =========================================================
-   6. GALERIE & CARTES
+   6. GALERIE DE PEINTURES & CARTEL BLANC
    ========================================================= */
 .gallery {
   display: grid;
@@ -219,7 +221,7 @@ header {
 }
 
 /* =========================================================
-   7. SECTION YEUX
+   7. SECTION ÉTUDES (YEUX)
    ========================================================= */
 .eyes-section {
   margin-top: 180px;
@@ -237,7 +239,7 @@ header {
 }
 
 /* =========================================================
-   8. POP-UP OEUVRE AU CLIC
+   8. MODALE DÉTAIL ŒUVRE (AU CLIC)
    ========================================================= */
 .artwork-modal {
   position: fixed;
@@ -351,9 +353,10 @@ header {
 }
 
 /* =========================================================
-   9. MODALE INFO & JEU
+   9. MODALES INFO (À PROPOS) & JEU
    ========================================================= */
-.info-modal, .game-modal {
+.info-modal, 
+.game-modal {
   position: fixed;
   inset: 0;
   background: rgba(255, 255, 255, 0.96);
@@ -370,7 +373,8 @@ header {
   transition: opacity 0.4s ease;
 }
 
-.info-modal.active, .game-modal.active {
+.info-modal.active, 
+.game-modal.active {
   opacity: 1;
   pointer-events: auto;
 }
@@ -387,13 +391,15 @@ header {
   cursor: pointer;
 }
 
-.info-content, .game-container {
+.info-content, 
+.game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 20px;
   max-width: 850px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -421,22 +427,36 @@ header {
   text-decoration: underline;
 }
 
+/* ESPACE DE JEU CANVA */
+.game-container h2 {
+  font-family: 'Mont-Bold', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 #gameCanvas {
-  background: #ffffff;
+  background: #fcfbfb;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-bottom: 2px solid #111113;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  max-width: 90vw;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  max-width: 100%;
+  width: 800px;
+  height: auto;
 }
 
 .game-instructions {
   font-family: 'Mont-ExtraLight', sans-serif;
   font-size: 0.9rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
   text-transform: uppercase;
 }
 
+/* =========================================================
+   10. ADAPTATION MOBILE (RESPONSIVE)
+   ========================================================= */
 @media (max-width: 768px) {
   .gallery {
     grid-template-columns: 1fr;

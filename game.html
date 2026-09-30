@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Alexis Moussard — Mini-Jeu</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @font-face {
+      font-family: 'Game-Font';
+      src: url('fonts/Game-Font.ttf') format('truetype'),
+           url('fonts/Game-Font.otf') format('opentype'),
+           url('fonts/Game-Font.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    :root { --fg: #111113; }
+
+    html {
+      transition: none; /* le jeu anime lui-même la couleur du fond */
+      background-color: #fbf4f6;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: none;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+      background-color: #fbf4f6;
+      color: var(--fg);
+      font-family: 'Game-Font', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .game-header {
+      position: absolute;
+      top: calc(env(safe-area-inset-top, 0px) + 16px);
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .back-btn,
+    .game-title {
+      font-family: 'Game-Font', sans-serif;
+      font-size: 1rem;
+      color: var(--fg);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 8px 0;
+    }
+
+    #canvas-container {
+      position: relative;
+      width: min(94vw, 1000px);
+      aspect-ratio: 1000 / 450;
+      max-height: 72vh;
+      max-height: 72dvh;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Téléphone en portrait : zone de jeu plus haute */
+    @media (max-width: 700px) and (orientation: portrait) {
+      #canvas-container { aspect-ratio: 4 / 3; }
+    }
+
+    @media (max-width: 600px) {
+      .back-btn,
+      .game-title { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-header">
+    <a href="index.html" class="back-btn">← Retour au portfolio</a>
+    <span class="game-title">Where Am I — Arcade</span>
+  </div>
+
+  <div id="canvas-container">
+    <canvas id="mainGameCanvas" width="1000" height="450"></canvas>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
