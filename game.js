@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const cy = LH / 2;
       ctx.fillStyle = rgb(col.fg);
       ctx.font = font(24);
-      ctx.fillText(state === 'over' ? 'PARTIE TERMINÉE' : 'PRÊT ?', LW / 2, cy - 40 * u);
+      ctx.fillText(state === 'over' ? 'GAME OVER' : 'READY ?', LW / 2, cy - 40 * u);
       ctx.font = font(14);
       if (state === 'over') ctx.fillText(`Tu as tenu ${yrs(Math.floor(years))}`, LW / 2, cy - 12 * u);
       ctx.fillText(`${hint} pour ${state === 'over' ? 'rejouer' : 'commencer'}`, LW / 2, cy + 16 * u);
